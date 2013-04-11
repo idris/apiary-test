@@ -1,0 +1,66 @@
+HOST: https://api.webs.com/
+
+--- Webs API ---
+---
+Welcome to the our sample API documentation. All comments can be written in (support [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax)
+---
+
+--
+Site Resources
+The following is a section of resources related to the shopping cart
+--
+List products added into your shopping-cart. (comment block again in Markdown)
+GET /sites/81525395
+< 200
+< Content-Type: application/json
+{
+"advanced": false,
+"creation_date": "2011-09-30T14:58:41Z",
+"custom_css_url": null,
+"description": "desc",
+"footer": "",
+"google_analytics_verify_code": null,
+"google_webmaster_tools_verify_code": null,
+"id": 81525395,
+"keywords": [
+"tags",
+" keys",
+" words"
+],
+"language_code": "en",
+"owner_about_me": null,
+"owner_creation_date": "2011-09-30T14:58:41Z",
+"owner_display_name": null,
+"owner_full_name": "idris@webs.com",
+"owner_gender": "Unknown",
+"owner_last_login": "2013-04-10T19:42:52Z",
+"owner_status": null,
+"page_limit": 10,
+"premium": false,
+"sidebars_enabled": false,
+"site_builder_version": "SB_3",
+"small_title": "",
+"social": true,
+"template_id": 3798,
+"theme": "vibrant_abstract",
+"time_zone": null,
+"title": "Finch Idris",
+"url": "http://finchidris.webs.com/",
+"username": "finchidris"
+}
+
+Save new products in your shopping cart
+POST /shopping-cart
+> Content-Type: application/json
+{ "product":"1AB23ORM", "quantity": 2 }
+< 201
+< Content-Type: application/json
+{ "status": "created", "url": "/shopping-cart/2" }
+
+
+-- Payment Resources --
+This resource allows you to submit payment information to process your *shopping cart* items
+POST /payment
+{ "cc": "12345678900", "cvc": "123", "expiry": "0112" }
+< 200
+{ "receipt": "/payment/receipt/1" }
